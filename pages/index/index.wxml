@@ -1,0 +1,67 @@
+<!--index.wxml-->
+<view class="container">
+<view class='hearTitle'>
+  <button size="mini" bindtap='changeMonth' data-id="-1" class='smallbutton'>
+  上月
+  </button>
+  <view>{{showYear}}年{{showMonth}}月</view>
+  <button size="mini" bindtap='changeMonth' data-id="1" class='smallbutton'>
+  下月
+  </button>
+  </view>
+  <view class="datearray">
+  <text class="day">一</text>
+  <text class="day">二</text>
+  <text class="day">三</text>
+  <text class="day">四</text>
+  <text class="day">五</text>
+  <text class="day" style="color:red">六</text>
+  <text class="day" style="color:red">日</text>
+  </view>
+  <view wx:for="{{array}}" wx:key="{{index}}" class="datearray">
+    <view wx:for="{{item.weekArray}}" wx:key="{{index}}" class="day">
+    <view class="day" wx:if="{{item.day!=0}}">
+    <view wx:if="{{item.shift == '休'}}">
+      <view class="day" style="color:green">
+      {{item.day}}
+      </view>
+      <view style="color:green">
+      {{item.shift}}
+      </view>
+      <view style="color:green">
+      {{item.lane}}
+      </view>
+      <view style="color:green">
+      {{item.bus}}
+      </view>
+    </view>
+    <view wx:else>
+      <view class="day">
+      {{item.day}}
+      </view>
+      <view>
+      {{item.shift}}
+      </view>
+      <view>
+      {{item.lane}}
+      </view>
+      <view>
+      {{item.bus}}
+      </view>
+    </view>
+    </view>
+    </view>
+  </view>
+  <view class='buttons'>
+  
+  <button size="mini" bindtap='plusshift' class='bigbutton'>
+  调整班次
+  </button>
+  <button size="mini" bindtap='pluslane' class='bigbutton'>
+  调整车道
+  </button>
+  <button size="mini" bindtap='plusbus' class='bigbutton'>
+  调整车次
+  </button>
+  </view>
+</view>
